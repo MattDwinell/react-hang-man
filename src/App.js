@@ -40,6 +40,7 @@ function App(){
   const[wins, setWins] = useState(0);
   const[losses, setLosses] = useState(0);
 
+
   const chooseWord = ()=>{
     console.log(Words);
     let chosenWord = Words[Math.floor(Math.random() * Words.length)]
@@ -83,7 +84,7 @@ const gameStatusCheck = (predGuess, predWrong) =>{
   });
   if(gameWin){
     console.log('game won!');
-    setMessage(`You guessed ${letters.toLowerCase()}! Close this message to play again.`);
+    setMessage(`You correctly guessed ${letters.toLowerCase()}! Close this message to play again.`);
     setWins(wins + 1)
     setMounted(true);
     //setReset(true);
@@ -96,6 +97,7 @@ if(predWrong >= 6){
   setMessage(`Out of guesses! The word was ${letters.toLowerCase()}. Close this message to play again.`);
   setMounted(true);
   setGameInProgress(false);
+  setReset(true);
   
 
 }
@@ -109,7 +111,7 @@ if(predWrong >= 6){
     if(gameInProgress){
   // console.log('game in progress');
     // console.log(/[a-zA-Z]/g.test(e.key.toUpperCase()))
-    if(! /[^a-zA-Z]/g.test(e.key.toUpperCase()) && e.key.length === 1 && !guesses.includes(e.key)){
+    if(! /[^a-zA-Z]/g.test(e.key.toUpperCase()) && e.key.length === 1 && !guesses.includes(e.key.toUpperCase())){
       let tempGuesses = guesses;
       console.log(tempGuesses)
       tempGuesses = tempGuesses + e.key.toUpperCase();

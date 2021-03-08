@@ -132,14 +132,13 @@ footer {
   display: inline-block;
   z-index: 5;
   position: absolute;
-  top: 5vh;
-  left: 30%;
-  width: 40%;
+  top: 4vh;
+  width: 450px;
   text-align: left;
   border:1px solid steelblue;
   border-radius: 5px;
   height: 10vh;
- 
+  margin: 30px 0;
 }
 .modal.show p{
   margin: 2vh 0 0 1vw;
@@ -153,4 +152,15 @@ footer {
 }
 .modal.show.lost{
   background-color:#ffdcd1;
+}
+@media only screen and (max-width: 600px){
+  .modal.show{
+    left: 10px;
+    width: 84.2%;
+    height: 15vh;
+  }
+  .container{
+    width: 350px;
+  }
+
 }
