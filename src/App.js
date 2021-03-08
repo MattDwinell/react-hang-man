@@ -6,6 +6,7 @@ import Display from './Components/Display'
 import Input from './Components/Input'
 import Modal from './Components/Modal'
 import Image from './Components/Image'
+import Footer from './Components/Footer'
 
 /*function App() {
   return (
@@ -137,6 +138,7 @@ if(predWrong >= 6){
   }
 
   return(
+    <>
     <div className = 'container' >
 
       <Header toggleGame = {toggleGame} gameInProgress = {gameInProgress}/>
@@ -145,7 +147,10 @@ if(predWrong >= 6){
       <Display wins = {wins} losses = {losses} gameState = {gameInProgress} guessedLetters = {guesses} wrongGuesses = {wrongGuesses}/>
       <Image wrongGuesses={wrongGuesses}/>
       <Modal closeModal = {startNewGame} message={message} display={mounted}/>
-    </div>
+     
+    </div> 
+    <Footer/>
+    </>
   )  
 
 
