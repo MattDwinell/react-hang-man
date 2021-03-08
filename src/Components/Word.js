@@ -1,11 +1,13 @@
 import Letter from './Letter'
-const Word =({letters})=> {
+const Word =({letters, guesses})=> {
+    // console.log(guesses);
     if(letters == null){
         letters = 'Press Start!';
     }
+
     return (
         <div className = 'letterWrapper'>
-            {letters.split('').map((l, i)=>(<Letter letter={l.toUpperCase()} key={i}/>))}
+            {letters.split('').map((l, i)=>(<Letter letter={l.toUpperCase()} key={i} display={guesses}/>))}
         </div>
     )
 
@@ -15,7 +17,8 @@ Letter.propTypes = {
 
 }
 Word.defaultProps = {
-    letters : ['P','R','E','S','S',' ', 'S','t','a','r','t','!',]
+    letters : ['Press Start!'],
+    guesses : ''
 }
 
 export default Word

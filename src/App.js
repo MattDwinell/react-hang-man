@@ -2,6 +2,9 @@ import React from 'react';
 import Header from './Components/Header'
 import Word from './Components/Word'
 import {useState} from 'react'
+import Display from './Components/Display'
+import Input from './Components/Input'
+import Modal from './Components/Modal'
 
 /*function App() {
   return (
@@ -24,9 +27,15 @@ import {useState} from 'react'
   ); 
 }*/
 function App(){
-  const [Words] = useState(['Anodyne', 'Melancholia', 'Aphasia', 'burbling', 'zaftig'])
+  const [Words] = useState(['ANODYNE', 'MELANCHOLIA', 'APHASIA', 'BURBLING', 'ZAFTIG'])
   const[letters, setLetters] = useState(['merry'])
   const[gameInProgress, setGameInProgress] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const[guesses, setGuesses] = useState('');
+  const[wrongGuesses, setWrongGuesses] = useState(0)
+  const [value, setValue] = useState('')
+  const[reset, setReset] = useState(false);
+  const[message,setMessage] = useState('');
 
   const chooseWord = ()=>{
     console.log(Words);
@@ -37,32 +46,96 @@ function App(){
 
   const toggleGame = ()=>{
     console.log('in toggle game function' + gameInProgress);
-    if(gameInProgress){setGameInProgress(false);
+    if(gameInProgress){
+      setGameInProgress(false);
+      setGuesses('');
+      setReset(true);
+      setWrongGuesses(0);
     }else{
+      setGuesses('');
+      setWrongGuesses(0);
        setGameInProgress(true);
        chooseWord();
+       setReset(false);
     }
     console.log(gameInProgress);
   }
-React.useEffect(()=>{
-  if (document.getElementById('root').getAttribute('listener') !== 'true') {
-      window.addEventListener('keyup', (event)=>{
-              checkLetter(event);
-  })
-        document.getElementById('root').setAttribute('listener', 'true');
-        console.log('event has been attached');
-   }
+  const updateValue = ()=>{
+setValue(guesses);
+  }
+  const startNewGame = ()=>{
+    console.log('hi');
+    setMounted(false);
+    toggleGame();
+  }
 
+const gameStatusCheck = (predGuess, predWrong) =>{
+  console.log(letters);
+  console.log(predGuess);
+  console.log(predWrong);
+  let tempCorrectLetters = letters.split('');
+  let gameWin = true;
+  tempCorrectLetters.forEach(letter => {
+    if(! predGuess.includes(letter)) gameWin = false;
+  });
+  if(gameWin){
+    console.log('game won!');
+    setMessage('You won! Close this message to play again.');
+    setMounted(true);
+    //setReset(true);
+    //setGameInProgress(false);
+    toggleGame();
+  }else{
+if(predWrong >= 6){
+  console.log('game lost. womp womp womp');
+  setMessage('Out of guesses! Close to play again.');
+  setMounted(true);
+  toggleGame();
 
-})
+}
+  }
+}
+
   const checkLetter = (e)=>{
-  if(gameInProgress)  console.log(e.key);
-  };
+    //  console.log('hi');
+    // console.log(gameInProgress); 
+     console.log(e.key)
+    if(gameInProgress){
+  // console.log('game in progress');
+    // console.log(/[a-zA-Z]/g.test(e.key.toUpperCase()))
+    if(! /[^a-zA-Z]/g.test(e.key.toUpperCase()) && e.key.length === 1 && !guesses.includes(e.key)){
+      let tempGuesses = guesses;
+      console.log(tempGuesses)
+      tempGuesses = tempGuesses + e.key.toUpperCase();
+      console.log(tempGuesses);
+
+      setGuesses( tempGuesses)
+      console.log('acceptable keystroke');
+      console.log(e.key);
+      let tempWrong = wrongGuesses;
+      if(! letters.includes(e.key.toUpperCase())){
+        tempWrong++;
+        setWrongGuesses(wrongGuesses + 1);
+        console.log(wrongGuesses);
+      }
+      gameStatusCheck(tempGuesses, tempWrong);
+
+    }else{
+      console.log('unacceptable keystroke');
+    }
+    } else{
+      console.log('thinks game is not in progress');
+    } 
+  }
 
   return(
-    <div className = 'container' onKeyUp = {checkLetter}>
+    <div className = 'container' >
+
       <Header toggleGame = {toggleGame} gameInProgress = {gameInProgress}/>
-      <Word letters= { gameInProgress ? letters : null}/>
+      <Word guesses = {guesses} letters= { gameInProgress ? letters : null}/>
+      <Input wrongGuesses = {wrongGuesses} reset = {reset} value= {value} handleChange = {updateValue} enabled={gameInProgress} makeGuess={(e)=>{checkLetter(e)}}/>
+      <Display gameState = {gameInProgress} guessedLetters = {guesses} wrongGuesses = {wrongGuesses}/>
+      <Modal closeModal = {startNewGame} message={message} display={mounted}/>
     </div>
   )  
 

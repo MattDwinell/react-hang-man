@@ -119,3 +119,38 @@ footer {
   width: 100%;
   text-align: center;
 }
+.input{
+  line-height: 35px;
+  font-size: 25px;
+  width: 65%;
+  text-transform: upperCase;
+}
+.modal.hide{
+  display:none;
+}
+.modal.show{
+  display: inline-block;
+  z-index: 5;
+  position: absolute;
+  top: 5vh;
+  left: 30%;
+  width: 40%;
+  text-align: center;
+  border:1px solid steelblue;
+  border-radius: 5px;
+  height: 10vh;
+ 
+}
+.modal.show p{
+  margin-top: 2vh;
+}
+.modal.show .close-modal{
+  margin-right: 10px;
+  float:right;
+}
+.modal.show.won{
+   background-color: #e2f9f2;
+}
+.modal.show.lost{
+  background-color:#ffdcd1;
+}
