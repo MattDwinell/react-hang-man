@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/react-hang-man/static/css/main.2f913334.chunk.css",
-    "main.js": "/react-hang-man/static/js/main.eeb3bc17.chunk.js",
-    "main.js.map": "/react-hang-man/static/js/main.eeb3bc17.chunk.js.map",
+    "main.css": "/react-hang-man/static/css/main.b49fad13.chunk.css",
+    "main.js": "/react-hang-man/static/js/main.ceb6ed5c.chunk.js",
+    "main.js.map": "/react-hang-man/static/js/main.ceb6ed5c.chunk.js.map",
     "runtime-main.js": "/react-hang-man/static/js/runtime-main.eabf9213.js",
     "runtime-main.js.map": "/react-hang-man/static/js/runtime-main.eabf9213.js.map",
     "static/js/2.e608c2d6.chunk.js": "/react-hang-man/static/js/2.e608c2d6.chunk.js",
@@ -10,13 +10,20 @@
     "static/js/3.e6699de1.chunk.js": "/react-hang-man/static/js/3.e6699de1.chunk.js",
     "static/js/3.e6699de1.chunk.js.map": "/react-hang-man/static/js/3.e6699de1.chunk.js.map",
     "index.html": "/react-hang-man/index.html",
-    "static/css/main.2f913334.chunk.css.map": "/react-hang-man/static/css/main.2f913334.chunk.css.map",
-    "static/js/2.e608c2d6.chunk.js.LICENSE.txt": "/react-hang-man/static/js/2.e608c2d6.chunk.js.LICENSE.txt"
+    "static/css/main.b49fad13.chunk.css.map": "/react-hang-man/static/css/main.b49fad13.chunk.css.map",
+    "static/js/2.e608c2d6.chunk.js.LICENSE.txt": "/react-hang-man/static/js/2.e608c2d6.chunk.js.LICENSE.txt",
+    "static/media/hangman0.b42c1b72.bmp": "/react-hang-man/static/media/hangman0.b42c1b72.bmp",
+    "static/media/hangman1.4798aadd.bmp": "/react-hang-man/static/media/hangman1.4798aadd.bmp",
+    "static/media/hangman2.e3caf770.bmp": "/react-hang-man/static/media/hangman2.e3caf770.bmp",
+    "static/media/hangman3.5290741d.bmp": "/react-hang-man/static/media/hangman3.5290741d.bmp",
+    "static/media/hangman4.26e7efac.bmp": "/react-hang-man/static/media/hangman4.26e7efac.bmp",
+    "static/media/hangman5.0d58d84f.bmp": "/react-hang-man/static/media/hangman5.0d58d84f.bmp",
+    "static/media/hangman6.7a9cbb7c.bmp": "/react-hang-man/static/media/hangman6.7a9cbb7c.bmp"
   },
   "entrypoints": [
     "static/js/runtime-main.eabf9213.js",
     "static/js/2.e608c2d6.chunk.js",
-    "static/css/main.2f913334.chunk.css",
-    "static/js/main.eeb3bc17.chunk.js"
+    "static/css/main.b49fad13.chunk.css",
+    "static/js/main.ceb6ed5c.chunk.js"
   ]
 }
