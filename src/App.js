@@ -28,7 +28,7 @@ import Image from './Components/Image'
   ); 
 }*/
 function App(){
-  const [Words] = useState(['ANODYNE', 'MELANCHOLIA', 'APHASIA', 'BURBLING', 'ZAFTIG'])
+  const [Words] = useState(['ANODYNE', 'MELANCHOLIA', 'APHASIA', 'BURBLING', 'ZAFTIG',"OSSIFIED","ETIOLATED","EXUDATIONS","SHAMBOLIC","PSORIATIC","SYNCRETIC","SYZYGY","INELUCTABLE","ERUCTATIONS","SCIOLIST","IMBROGLIO","AGGLUTINATION","BATHETIC","PUSILLANIMOUS","NACREOUS","MORBIFIC","TUMULI","SEPHARDIC","RECRUDESCENCE","AMANUENSIS","ONANISTIC","WEN","LETHEAN",])
   const[letters, setLetters] = useState(['merry'])
   const[gameInProgress, setGameInProgress] = useState(false);
   const [mounted, setMounted] = useState(false);
