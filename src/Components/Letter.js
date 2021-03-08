@@ -5,7 +5,7 @@ const Letter = ({letter, display}) => {
     const color = display.includes(letter) ? 'red' : 'blue';
     return (
         <span className = 'letter' style={{color:color}}>
-            { letter}  
+            { color == 'red' ?  letter : '_'}  
         </span>
     )
 }

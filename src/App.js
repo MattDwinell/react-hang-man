@@ -5,6 +5,7 @@ import {useState} from 'react'
 import Display from './Components/Display'
 import Input from './Components/Input'
 import Modal from './Components/Modal'
+import Image from './Components/Image'
 
 /*function App() {
   return (
@@ -36,6 +37,8 @@ function App(){
   const [value, setValue] = useState('')
   const[reset, setReset] = useState(false);
   const[message,setMessage] = useState('');
+  const[wins, setWins] = useState(0);
+  const[losses, setLosses] = useState(0);
 
   const chooseWord = ()=>{
     console.log(Words);
@@ -80,7 +83,8 @@ const gameStatusCheck = (predGuess, predWrong) =>{
   });
   if(gameWin){
     console.log('game won!');
-    setMessage('You won! Close this message to play again.');
+    setMessage(`You guessed ${letters.toLowerCase()}! Close this message to play again.`);
+    setWins(wins + 1)
     setMounted(true);
     //setReset(true);
     //setGameInProgress(false);
@@ -88,9 +92,11 @@ const gameStatusCheck = (predGuess, predWrong) =>{
   }else{
 if(predWrong >= 6){
   console.log('game lost. womp womp womp');
-  setMessage('Out of guesses! Close to play again.');
+  setLosses(losses + 1)
+  setMessage(`Out of guesses! The word was ${letters.toLowerCase()}. Close this message to play again.`);
   setMounted(true);
-  toggleGame();
+  setGameInProgress(false);
+  
 
 }
   }
@@ -134,7 +140,8 @@ if(predWrong >= 6){
       <Header toggleGame = {toggleGame} gameInProgress = {gameInProgress}/>
       <Word guesses = {guesses} letters= { gameInProgress ? letters : null}/>
       <Input wrongGuesses = {wrongGuesses} reset = {reset} value= {value} handleChange = {updateValue} enabled={gameInProgress} makeGuess={(e)=>{checkLetter(e)}}/>
-      <Display gameState = {gameInProgress} guessedLetters = {guesses} wrongGuesses = {wrongGuesses}/>
+      <Display wins = {wins} losses = {losses} gameState = {gameInProgress} guessedLetters = {guesses} wrongGuesses = {wrongGuesses}/>
+      <Image wrongGuesses={wrongGuesses}/>
       <Modal closeModal = {startNewGame} message={message} display={mounted}/>
     </div>
   )  

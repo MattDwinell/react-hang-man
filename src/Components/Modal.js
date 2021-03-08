@@ -5,7 +5,7 @@ const Modal = ({message, display, closeModal}) => {
     return (
 
         <div className = {`modal ${display ? 'show' : 'hide'} ${message.includes('won')? 'won' : 'lost'}`}>
-            <p>{message}<FaTimes onClick = {closeModal} className = 'close-modal' style={{color:'red', cursor: 'pointer'}} /> </p>
+            <p><FaTimes onClick = {closeModal} className = 'close-modal' style={{color:'red', cursor: 'pointer'}}/> {message} </p>
         </div>
     )
 }

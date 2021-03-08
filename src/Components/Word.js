@@ -2,7 +2,8 @@ import Letter from './Letter'
 const Word =({letters, guesses})=> {
     // console.log(guesses);
     if(letters == null){
-        letters = 'Press Start!';
+        letters = 'PRESS START!';
+        guesses = 'PRESS START!';
     }
 
     return (

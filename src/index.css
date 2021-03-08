@@ -135,14 +135,14 @@ footer {
   top: 5vh;
   left: 30%;
   width: 40%;
-  text-align: center;
+  text-align: left;
   border:1px solid steelblue;
   border-radius: 5px;
   height: 10vh;
  
 }
 .modal.show p{
-  margin-top: 2vh;
+  margin: 2vh 0 0 1vw;
 }
 .modal.show .close-modal{
   margin-right: 10px;
