@@ -90,7 +90,7 @@ const gameStatusCheck = (predGuess, predWrong) =>{
   });
   if(gameWin){
     console.log('game won!');
-    setMessage(`You correctly guessed ${letters.toLowerCase()}! Close this message to play again.`);
+    setMessage(`You correctly guessed "${letters.toLowerCase()}"! Close this message to play again.`);
     setWins(wins + 1)
     setMounted(true);
     //setReset(true);
