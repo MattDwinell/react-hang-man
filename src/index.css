@@ -137,7 +137,7 @@ footer {
   text-align: left;
   border:1px solid steelblue;
   border-radius: 5px;
-  height: 10vh;
+  /* height: 10vh; */
   margin: 30px 0;
 }
 .modal.show p{
@@ -153,11 +153,14 @@ footer {
 .modal.show.lost{
   background-color:#ffdcd1;
 }
+.styled-link{
+  color: steelblue;
+}
+
 @media only screen and (max-width: 600px){
   .modal.show{
     left: 10px;
     width: 84.2%;
-    height: 15vh;
   }
   .container{
     width: 350px;
