@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {HashRouter as Router, Link, Route} from 'react-router-dom'
 import Header from './Components/Header'
 import Word from './Components/Word'
 import Display from './Components/Display'
@@ -143,13 +143,13 @@ if(predWrong >= 6){
   }
 
   return(
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
     <div className = 'container' >
     <Header toggleGame = {toggleGame} gameInProgress = {gameInProgress}/>
 
      
     
-    <Route path={process.env.PUBLIC_URL + '/'} exact render={(props)=>(
+    <Route exact path={'/'}  render={(props)=>(
       <>
      
       <Word guesses = {guesses} letters= { gameInProgress ? letters : null}/>
@@ -159,7 +159,7 @@ if(predWrong >= 6){
       <Modal closeModal = {startNewGame} message={message} display={mounted}/>
       </>
     )}/>
-    <Route path = {process.env.PUBLIC_URL + '/about'} render={(props)=>(
+    <Route path = {'/about'} render={(props)=>(
       <About Words = {Words} Definitions = {Definitions}/>
 
     )}/>
