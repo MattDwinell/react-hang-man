@@ -149,7 +149,7 @@ if(predWrong >= 6){
 
      
     
-    <Route path='/' exact render={(props)=>(
+    <Route path={process.env.PUBLIC_URL + '/'} exact render={(props)=>(
       <>
      
       <Word guesses = {guesses} letters= { gameInProgress ? letters : null}/>
@@ -159,7 +159,7 @@ if(predWrong >= 6){
       <Modal closeModal = {startNewGame} message={message} display={mounted}/>
       </>
     )}/>
-    <Route path = '/about' render={(props)=>(
+    <Route path = {process.env.PUBLIC_URL + '/about'} render={(props)=>(
       <About Words = {Words} Definitions = {Definitions}/>
 
     )}/>
