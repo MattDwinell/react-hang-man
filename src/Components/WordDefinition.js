@@ -6,6 +6,7 @@ const WordDefinition = ({word, definition, key}) => {
     const showHide = (state)=>{
         setToggle(!state)
     }
+    
     return (
         <>
             <button onClick = {()=>showHide(toggle)} className = 'btn def'>{word}</button>
