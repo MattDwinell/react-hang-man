@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom'
 import WordDefinition from './WordDefinition'
 
 const About = ({Words, Definitions}) => {

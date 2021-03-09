@@ -18,6 +18,8 @@ Header.propTypes = {
 title: PropTypes.string,
 gameInProgress: PropTypes.bool
 }
-Header.defaultProps = {title: 'Hangman', gameInProgress: false}
+Header.defaultProps = {title: 'Hangman',
+                    gameInProgress: false
+}
 
 export default Header

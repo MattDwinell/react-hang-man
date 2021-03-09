@@ -17,7 +17,9 @@ const WordDefinition = ({word, definition, key}) => {
 }
 
 WordDefinition.propTypes = {
-
+word: PropTypes.string,
+definition: PropTypes.string,
+key: PropTypes.number
 }
 
 export default WordDefinition

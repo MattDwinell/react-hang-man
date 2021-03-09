@@ -10,22 +10,22 @@ import hangman6 from './../images/hangman6.bmp'
 
 const Image = ({wrongGuesses}) => {
     let logo;
- if(wrongGuesses == 0) logo = hangman0;
- else if(wrongGuesses == 1) logo = hangman1;
- else if(wrongGuesses == 2) logo = hangman2;
- else if(wrongGuesses == 3) logo = hangman3;
- else if(wrongGuesses == 4) logo = hangman4;
- else if(wrongGuesses == 5) logo = hangman5;
- else if(wrongGuesses == 6) logo = hangman6;
+ if(wrongGuesses === 0) logo = hangman0;
+ else if(wrongGuesses === 1) logo = hangman1;
+ else if(wrongGuesses === 2) logo = hangman2;
+ else if(wrongGuesses === 3) logo = hangman3;
+ else if(wrongGuesses === 4) logo = hangman4;
+ else if(wrongGuesses === 5) logo = hangman5;
+ else if(wrongGuesses === 6) logo = hangman6;
     return (
         <div>
-            <img width='100%' alt='hangman image' src= {logo}></img>
+            <img width='100%' alt='hangman being built' src= {logo}></img>
         </div>
     )
 }
 
 Image.propTypes = {
-
+wrongGuesses: PropTypes.number
 }
 Image.defaultProps = {
     wrongGuesses: 0

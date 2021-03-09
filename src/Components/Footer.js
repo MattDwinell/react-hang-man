@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import {useLocation} from 'react-router-dom'
 const Footer = () => {
@@ -11,8 +10,6 @@ const Footer = () => {
     )
 }
 
-Footer.propTypes = {
 
-}
 
 export default Footer

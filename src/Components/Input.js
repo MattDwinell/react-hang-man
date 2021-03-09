@@ -11,7 +11,10 @@ const Input = ({makeGuess, enabled,reset, handleChange, totalGuesses}) => {
 }
 
 Input.propTypes = {
-
+enabled: PropTypes.bool,
+reset: PropTypes.bool,
+totalGuesses: PropTypes.number,
+handleChange: PropTypes.func
 }
 
 

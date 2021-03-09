@@ -13,7 +13,11 @@ const Display = ({wins, losses,gameState, guessedLetters, wrongGuesses}) => {
 }
 
 Display.propTypes = {
-
+    wins: PropTypes.number,
+    losses: PropTypes.number,
+    gameState: PropTypes.bool,
+    guessedLetters: PropTypes.string,
+    wrongGuesses: PropTypes.number
 }
 Display.defaultProps = {
     wins : 0,

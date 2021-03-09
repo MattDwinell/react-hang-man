@@ -11,7 +11,9 @@ const Modal = ({message, display, closeModal}) => {
 }
 
 Modal.propTypes = {
-
+    message: PropTypes.string,
+    display: PropTypes.bool,
+    closeModal: PropTypes.func
 }
 Modal.css ={
     display: 'none'
