@@ -105,7 +105,7 @@ const fetchWords = async()=>{
 setValue(guesses);
   }
   const startNewGame = ()=>{
-    console.log('hi');
+    // console.log('hi');
     setMounted(false);
    // toggleGame();
   }
@@ -121,7 +121,7 @@ const gameStatusCheck = (predGuess, predWrong) =>{
   });
   if(gameWin){
     console.log('game won!');
-    setMessage(`You correctly guessed "${letters.toLowerCase()}"! Close this message to play again.`);
+    setMessage(`You correctly guessed "${letters.toLowerCase()}"!`);
     setWins(wins + 1)
     setMounted(true);
     //setReset(true);
@@ -131,7 +131,7 @@ const gameStatusCheck = (predGuess, predWrong) =>{
 if(predWrong >= 6){
   console.log('game lost. womp womp womp');
   setLosses(losses + 1)
-  setMessage(`Out of guesses! The word was ${letters.toLowerCase()}. Close this message to play again.`);
+  setMessage(`Out of guesses! The word was ${letters.toLowerCase()}.`);
   setMounted(true);
   setGameInProgress(false);
   setReset(true);

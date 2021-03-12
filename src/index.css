@@ -9,8 +9,19 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+body{
+/* background-image: url('https://i2.wp.com/files.123freevectors.com/wp-content/original/142195-blue-and-white-simple-background.jpg?w=800&q=95');*/
+background-image: url('./images/background-image-hills.png');
+background-position: center;
+/* background-repeat: no-repeat; */
+/* background-size: cover; */
+}
+footer{
+  background-color: white;
+}
 
 .container {
+  background-color: white;
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
@@ -104,6 +115,10 @@ footer {
 .styled-link{
   color: steelblue;
 }
+.radio-control{
+  /* margin-top: 10px; */
+}
+
 
 @media only screen and (max-width: 600px){
   .modal.show{

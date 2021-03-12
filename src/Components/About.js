@@ -9,7 +9,7 @@ const About = ({Words, Definitions}) => {
 
     return (
         <div>
-        <p>Okay, I admit it. Even the 'normal' game mode contains difficult words I've come across while reading, so you've been playing hangman on hardmode. Below are all of the words in the wordbank and their definitions. Happy learning!</p>
+        <p>Okay, I admit it. Most of the Preset wordbank contains difficult words I've come across while reading, so you've been playing hangman on hardmode. Below are all of the words in the normal wordbank and their definitions. Happy learning!</p>
     {objArray.map((obj, i)=> < WordDefinition key={i}  word={obj.word} definition = {obj.definition} />)}
     <br/><br/>
     <p>This Project was created with React.js and utilizes the following libraries/helpers: React Router, PropTypes, Fetch, and Favicons.<br/> All images courtesy of Callie Yohn, who draws better than I ever will!</p>
