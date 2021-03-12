@@ -5,7 +5,7 @@ const Modal = ({message, display, closeModal}) => {
     return (
 
         <div className = {`modal ${display ? 'show' : 'hide'} ${message.includes('correctly')? 'won' : 'lost'}`}>
-            <p><FaTimes onClick = {closeModal} className = 'close-modal' style={{color:'red', cursor: 'pointer'}}/> {message} If you're interested in what a word means, you can find its definition on the about page, located at the bottom of the screen. </p>
+            <p><FaTimes onClick = {closeModal} className = 'close-modal' style={{color:'red', cursor: 'pointer'}}/> {message} You can find definitions for all of the normal difficulty words by clicking on the about page below. </p>
         </div>
     )
 }

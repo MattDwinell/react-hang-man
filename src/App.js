@@ -1,6 +1,6 @@
 import React from 'react';
-import {useState} from 'react'
-import {HashRouter as Router, Link, Route} from 'react-router-dom'
+import {useState, useEffect} from 'react'
+import {HashRouter as Router, Route} from 'react-router-dom'
 import Header from './Components/Header'
 import Word from './Components/Word'
 import Display from './Components/Display'
@@ -45,17 +45,48 @@ function App(){
   const[message,setMessage] = useState('');
   const[wins, setWins] = useState(0);
   const[losses, setLosses] = useState(0);
+  const[difficulty, setDifficulty] = useState('hard');
+let[apiWords, setApiWords] = useState([])
+
+  const changeDifficulty = (value) =>{
+    // console.log(value);
+    //*** CURRENTLY WORKING HERE */
+    setDifficulty(value);
+}
+
+useEffect(()=>{
+
+    const getWords = async()=>{
+      const wordsFromFetch = await fetchWords();
+      // console.log(difficulty);
+
+      setApiWords(wordsFromFetch);
+      // console.log(apiWords);
+      
+    }
+    getWords()
+}, [difficulty])
+
+const fetchWords = async()=>{
+  const res = await fetch('https://random-word-api.herokuapp.com/word?number=100&swear=0');
+  const data = await res.json();
+  return data;
+ // updateApiWords(data);
+}
+
 
 
   const chooseWord = ()=>{
-    console.log(Words);
-    let chosenWord = Words[Math.floor(Math.random() * Words.length)]
+    // console.log(Words);
+    let chosenWord;
+    if(difficulty === 'harder') chosenWord = apiWords[Math.floor(Math.random() * apiWords.length)].toUpperCase();
+    else chosenWord = Words[Math.floor(Math.random() * Words.length)]
     setLetters(chosenWord);
-    console.log(letters);
+    // console.log(letters);
   }
 
   const toggleGame = ()=>{
-    console.log('in toggle game function' + gameInProgress);
+    // console.log('in toggle game function' + gameInProgress);
     if(gameInProgress){
       setGameInProgress(false);
       setGuesses('');
@@ -68,7 +99,7 @@ function App(){
        chooseWord();
        setReset(false);
     }
-    console.log(gameInProgress);
+    // console.log(gameInProgress);
   }
   const updateValue = ()=>{
 setValue(guesses);
@@ -76,13 +107,13 @@ setValue(guesses);
   const startNewGame = ()=>{
     console.log('hi');
     setMounted(false);
-    toggleGame();
+   // toggleGame();
   }
 
 const gameStatusCheck = (predGuess, predWrong) =>{
-  console.log(letters);
-  console.log(predGuess);
-  console.log(predWrong);
+  // console.log(letters);
+  // console.log(predGuess);
+  // console.log(predWrong);
   let tempCorrectLetters = letters.split('');
   let gameWin = true;
   tempCorrectLetters.forEach(letter => {
@@ -113,24 +144,24 @@ if(predWrong >= 6){
   const checkLetter = (e)=>{
     //  console.log('hi');
     // console.log(gameInProgress); 
-     console.log(e.key)
+    //  console.log(e.key)
     if(gameInProgress){
   // console.log('game in progress');
     // console.log(/[a-zA-Z]/g.test(e.key.toUpperCase()))
     if(! /[^a-zA-Z]/g.test(e.key.toUpperCase()) && e.key.length === 1 && !guesses.includes(e.key.toUpperCase())){
       let tempGuesses = guesses;
-      console.log(tempGuesses)
+      // console.log(tempGuesses)
       tempGuesses = tempGuesses + e.key.toUpperCase();
-      console.log(tempGuesses);
+      // console.log(tempGuesses);
 
       setGuesses( tempGuesses)
-      console.log('acceptable keystroke');
-      console.log(e.key);
+      // console.log('acceptable keystroke');
+      // console.log(e.key);
       let tempWrong = wrongGuesses;
       if(! letters.includes(e.key.toUpperCase())){
         tempWrong++;
         setWrongGuesses(wrongGuesses + 1);
-        console.log(wrongGuesses);
+        // console.log(wrongGuesses);
       }
       gameStatusCheck(tempGuesses, tempWrong);
 
@@ -138,14 +169,14 @@ if(predWrong >= 6){
       console.log('unacceptable keystroke');
     }
     } else{
-      console.log('thinks game is not in progress');
+      // console.log('thinks game is not in progress');
     } 
   }
 
   return(
     <Router basename={process.env.PUBLIC_URL}>
     <div className = 'container' >
-    <Header toggleGame = {toggleGame} gameInProgress = {gameInProgress}/>
+    <Header changeDifficulty = {changeDifficulty} toggleGame = {toggleGame} gameInProgress = {gameInProgress}/>
 
      
     
